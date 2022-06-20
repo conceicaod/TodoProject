@@ -1,0 +1,7 @@
+1. html tempalte
+2. form with th:action
+3. input with th:name
+4. controller with @contorller
+5. addressing the th:action from (2) with the @RequestMapping
+6. pass a @RequestParam with the exam name given in the th:name section on the input
+7. add an interface with a @Repository annotation and extend it from a JPARepository < Todo, Integer>

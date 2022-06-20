@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/style.css}" media="screen">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Todo App</title>
 </head>
 <body>
+ <div class="container">
+     <form class="todo-form" th:action="@{/addTask}">
+         <input type="text" th:name="todoTask" placeholder="Input your task..." >
+         <input type="submit" value="Add">
+     </form>
+     <div class="tasks">
 
+     </div>
+ </div>
 </body>
 </html>
