@@ -9,10 +9,10 @@
  <div class="container">
      <form class="todo-form" th:action="@{/addTask}">
          <input type="text" th:name="todoTask" placeholder="Input your task..." >
-         <input type="submit" value="Add">
+         <input type="submit" value="+">
      </form>
-     <div class="tasks">
-
+     <div class="task-content">
+        <div th:each="task : ${tasks}" th:text="${task.content}" class="current-task"></div>
      </div>
  </div>
 </body>

@@ -5,3 +5,8 @@
 5. addressing the th:action from (2) with the @RequestMapping
 6. pass a @RequestParam with the exam name given in the th:name section on the input
 7. add an interface with a @Repository annotation and extend it from a JPARepository < Todo, Integer>
+8. add a service class with a @Service annotation
+9. include the reference to the repository with an @Autowired annotation in the service class
+10. include the reference to the service with an @Autowired annotaion in the controller class
+11. add a method to save the task in the service, where you call a save method from the repository
+12. call the method you created above in the controller method section
