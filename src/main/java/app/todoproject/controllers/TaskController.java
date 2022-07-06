@@ -19,9 +19,18 @@ public class TaskController {
     @RequestMapping("/addTask")
     public String handleAddTaskRequest(@RequestParam("todoTask") String taskContent, Model model){
 
+        taskContent = taskContent.trim();
         Todo task = new Todo(taskContent, false);
-        todoService.saveTodoTask(task);
+        if(!taskContent.isEmpty() || !taskContent.isBlank()){
+            todoService.saveTodoTask(task);
+        }
         // TODO: add a call to get all tasks and send them back to the frontend
+        List<Todo> allCurrentTasks = todoService.getAllTasks();
+        model.addAttribute("tasks", allCurrentTasks);
+        return "redirect:/";
+    }
+    @RequestMapping(value={"/", "/home", "/index"})
+    public String loadHomePage(Model model){
         List<Todo> allCurrentTasks = todoService.getAllTasks();
         model.addAttribute("tasks", allCurrentTasks);
         return "index";

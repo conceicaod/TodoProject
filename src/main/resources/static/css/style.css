@@ -11,7 +11,7 @@ body{
     margin: 10% auto;
    background-color: #fff;
     border-radius: 5px;
-    padding-top:30px;
+    padding:30px;
 }
 
 .todo-form{
@@ -34,4 +34,33 @@ input[type="submit"]{
     font-size: 20px;
     border: none;
     border-radius: 5px;
+}
+
+.task-content{
+    width: 60%;
+    margin: 2% auto;
+}
+
+.current-task{
+    min-width: 60%;
+    padding: 10px;
+    background-color: #e6e6e6;
+    font-family: Arial;
+    font-size: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icons{
+    width: 20%;
+}
+
+.icon-img{
+    width: 30px;
 }

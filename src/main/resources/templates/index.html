@@ -12,7 +12,23 @@
          <input type="submit" value="+">
      </form>
      <div class="task-content">
-        <div th:each="task : ${tasks}" th:text="${task.content}" class="current-task"></div>
+
+             <div th:each="task : ${tasks}" class="row">
+                 <div th:text="${task.content}" class="current-task"></div>
+                 <div class="icons row">
+                     <form th:action="@{/markComplete}">
+                         <img th:src="@{/images/checked.png}" class="icon-img">
+                     </form>
+
+                     <form th:action="@{/deleteTask}">
+                         <img th:src="@{/images/delete.png}" class="icon-img">
+                     </form>
+                 </div>
+
+             </div>
+
+
+
      </div>
  </div>
 </body>
