@@ -43,6 +43,8 @@ input[type="submit"]{
 
 .current-task{
     min-width: 60%;
+    inline-size: 60%;
+    overflow-wrap: break-word;
     padding: 10px;
     background-color: #e6e6e6;
     font-family: Arial;
@@ -63,4 +65,13 @@ input[type="submit"]{
 
 .icon-img{
     width: 30px;
+}
+
+.icon-img:hover{
+    cursor: pointer;
+}
+
+
+.checked{
+    text-decoration: line-through;
 }

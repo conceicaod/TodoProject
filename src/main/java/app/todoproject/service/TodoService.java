@@ -22,4 +22,23 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
+    public void markComplete(int id){
+        Todo task = todoRepository.findById(id).get();
+        if(task.isComplete() == true){
+            task.setComplete(false);
+        }
+        else{
+            task.setComplete(true);
+        }
+
+       todoRepository.save(task);
+    }
+
+    public void removeTask(int id){
+        Todo task = todoRepository.findById(id).get();
+        if(task.isComplete() == true){
+            todoRepository.delete(task);
+        }
+    }
+
 }

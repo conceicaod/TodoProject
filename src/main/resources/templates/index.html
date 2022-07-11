@@ -16,13 +16,13 @@
              <div th:each="task : ${tasks}" class="row">
                  <div th:text="${task.content}" class="current-task"></div>
                  <div class="icons row">
-                     <form th:action="@{/markComplete}">
+                     <a th:href="@{/markComplete/{id}(id = ${task.id})}">
                          <img th:src="@{/images/checked.png}" class="icon-img">
-                     </form>
+                     </a>
 
-                     <form th:action="@{/deleteTask}">
+                     <a th:href="@{/deleteTask/{id}(id = ${task.id})}">
                          <img th:src="@{/images/delete.png}" class="icon-img">
-                     </form>
+                     </a>
                  </div>
 
              </div>
