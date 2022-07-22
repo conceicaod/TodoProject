@@ -72,6 +72,11 @@ input[type="submit"]{
 }
 
 
-.checked{
+.complete{
     text-decoration: line-through;
+}
+
+.control-col{
+    width: 30%;
+    margin-top: 7%;
 }

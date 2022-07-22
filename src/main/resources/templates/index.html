@@ -14,7 +14,9 @@
      <div class="task-content">
 
              <div th:each="task : ${tasks}" class="row">
-                 <div th:text="${task.content}" class="current-task"></div>
+                 <div th:if="${task.complete}" th:text="${task.content}" class="current-task complete"></div>
+                 <div th:if="${!task.complete}" th:text="${task.content}" class="current-task"></div>
+
                  <div class="icons row">
                      <a th:href="@{/markComplete/{id}(id = ${task.id})}">
                          <img th:src="@{/images/checked.png}" class="icon-img">
@@ -27,6 +29,17 @@
 
              </div>
 
+         <div class="row">
+             <div class="control-col" th:text="${inCompleteCount} + ' items left'"></div>
+             <div class="control-col">
+                 <a th:href="@{/}">All</a>
+                 <a th:href="@{/showIncompleteTasks}">Active</a>
+                 <a th:href="@{/showCompleteTasks}">Completed</a>
+             </div>
+             <div class="control-col">
+                 <a th:href="@{/clearCompletedTasks}">Clear Completed</a>
+             </div>
+         </div>
 
 
      </div>
