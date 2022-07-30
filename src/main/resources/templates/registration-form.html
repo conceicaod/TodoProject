@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/style.css}" media="screen">
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+</head>
+<body>
+ <div class="container reg-container">
+     <form th:action="@{/registerUsers}">
+         <input type="text" name="username" placeholder="Input your username" class="reg-form-input">
+         <input type="password" name="password" placeholder="Input your password" class="reg-form-input" >
+            <br>
+         <input type="submit" value="Register">
+     </form>
+
+     <div style="margin-top: 20px;">
+         Already registered?
+         <a th:href="@{/showLoginPage}">Login</a>
+     </div>
+ </div>
+</body>
+</html>

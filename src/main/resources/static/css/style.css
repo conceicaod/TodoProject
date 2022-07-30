@@ -14,13 +14,25 @@ body{
     padding:30px;
 }
 
+.reg-container{
+    width: 40%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.reg-form-input{
+    margin: 15px 0;
+}
+
 .todo-form{
     min-height: 100px;
     margin: 5% auto;
     text-align: center;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
     width: 65%;
     padding: 10px;
     font-family: Arial;
