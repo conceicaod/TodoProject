@@ -1,8 +1,12 @@
 package app.todoproject.controllers;
 
 import app.todoproject.entity.Todo;
+import app.todoproject.entity.User;
 import app.todoproject.service.TodoService;
+import app.todoproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,15 +22,25 @@ public class TaskController {
     @Autowired
     TodoService todoService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping("/addTask")
     public String handleAddTaskRequest(@RequestParam("todoTask") String taskContent, Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+
+        User user = userService.retrieveUserByUsername(currentUserName);
 
         taskContent = taskContent.trim();
         Todo task = new Todo(taskContent, false);
+        task.setUser(user);
         if(!taskContent.isEmpty() || !taskContent.isBlank()){
             todoService.saveTodoTask(task);
         }
-        // TODO: add a call to get all tasks and send them back to the frontend
+        user.addTaskToList(task);
+        userService.saveUser(user);
+
         List<Todo> allCurrentTasks = todoService.getAllTasks();
         model.addAttribute("tasks", allCurrentTasks);
         return "redirect:/";

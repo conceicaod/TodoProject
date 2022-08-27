@@ -30,16 +30,9 @@ public class InitialData {
     @PostConstruct
     public void init(){
         User user = new User("test@gmail.com", passwordEncoder.encode("test"));
-
-      Todo taskOne = new Todo("Deploy website", false, user);
-       user.addTaskToList(taskOne);
-       todoService.saveTodoTask(taskOne);
-
-       List<Todo> tasks = new ArrayList<>();
-       tasks.add(taskOne);
-       user.setUserTasks(tasks);
-
         userService.saveUser(user.getUsername(), user.getPassword());
+
+
 
     }
 }

@@ -20,12 +20,10 @@ public class UserService {
 
     public void saveUser(String username, String password){
         User user = new User(username, password);
+        userRepository.save(user);
+    }
 
-        if(user.getUserTasks() != null){
-            for(Todo task : user.getUserTasks()){
-                todoRepository.save(task);
-            }
-        }
+    public void saveUser(User user){
         userRepository.save(user);
     }
 
