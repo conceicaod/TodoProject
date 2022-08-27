@@ -6,6 +6,7 @@
     <title>Todo App</title>
 </head>
 <body>
+<div th:text="'You are logged in as: ' + ${currentUser}" style="color: white;"></div>
  <div class="container">
      <form class="todo-form" th:action="@{/addTask}">
          <input type="text" th:name="todoTask" placeholder="Input your task..." >

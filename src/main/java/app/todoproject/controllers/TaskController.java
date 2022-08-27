@@ -41,13 +41,19 @@ public class TaskController {
         user.addTaskToList(task);
         userService.saveUser(user);
 
-        List<Todo> allCurrentTasks = todoService.getAllTasks();
+        List<Todo> allCurrentTasks = user.getUserTasks();
         model.addAttribute("tasks", allCurrentTasks);
         return "redirect:/";
     }
     @RequestMapping(value={"/", "/home", "/index"})
     public String loadHomePage(Model model){
-        List<Todo> allCurrentTasks = todoService.getAllTasks();
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+
+        User user = userService.retrieveUserByUsername(currentUserName);
+
+        List<Todo> allCurrentTasks = user.getUserTasks();
         int count = 0;
         for(Todo task : allCurrentTasks){
             if(!task.isComplete()){
@@ -56,6 +62,7 @@ public class TaskController {
         }
         model.addAttribute("inCompleteCount", count);
         model.addAttribute("tasks", allCurrentTasks);
+        model.addAttribute("currentUser", user.getUsername());
         return "index";
     }
 
