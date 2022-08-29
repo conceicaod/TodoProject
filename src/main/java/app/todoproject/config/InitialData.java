@@ -29,8 +29,8 @@ public class InitialData {
 
     @PostConstruct
     public void init(){
-        User user = new User("test@gmail.com", passwordEncoder.encode("test"));
-        userService.saveUser(user.getUsername(), user.getPassword());
+       // User user = new User("test@gmail.com", passwordEncoder.encode("test"));
+       // userService.saveUser(user.getUsername(), user.getPassword());
 
 
 

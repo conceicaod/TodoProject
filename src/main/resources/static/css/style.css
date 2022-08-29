@@ -92,3 +92,30 @@ input[type="submit"]{
     width: 30%;
     margin-top: 7%;
 }
+
+.auth-info{
+    width: 60%;
+    color: white;
+    margin: 3% auto 0 auto;
+}
+
+.logout-wrap{
+    width: 60%;
+    color: white;
+    margin: 1% auto;
+}
+
+.error-container{
+    width: 30%;
+    background-color: white;
+    margin: 7% auto;
+    text-align: center;
+    padding: 30px;
+}
+
+.error-message{
+    font-size: 20px;
+    color: red;
+    font-style: italic;
+    margin-bottom: 20px;
+}
