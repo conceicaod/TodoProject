@@ -35,7 +35,7 @@ public class TaskController {
         taskContent = taskContent.trim();
         Todo task = new Todo(taskContent, false);
         task.setUser(user);
-        if(!taskContent.isEmpty() || !taskContent.isBlank()){
+        if(!taskContent.isEmpty()){
             todoService.saveTodoTask(task);
         }
         user.addTaskToList(task);
